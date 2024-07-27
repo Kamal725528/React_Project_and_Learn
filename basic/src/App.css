@@ -1,0 +1,19 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.Heading{
+  font-size: xx-large;
+  background-color: yellowgreen;
+  width: 450px;
+  height: 200px;
+  color: red;
+  padding-top: 50px;
+}
+
+.parent{
+  display: flex;
+  /* flex-wrap: wrap; */
+}
