@@ -86,11 +86,11 @@ function Form(){
 
                     <label htmlFor="teacher">Select your Educator : </label>
                     <select name='teacher' placeholder="samia begum"  onChange={changeHandler}>
-                        <option name='samia'>Samia Begum</option>
-                        <option name='kamal'>Kamal Nayan</option>
-                        <option name='adarsh'>Adarsh Aniket</option>
-                        <option name='shilwant'>Shilwant</option>
-                        <option name='mohan'>Krishan Mohan</option>
+                        <option value='samia'>Samia Begum</option>
+                        <option value='kamal'>Kamal Nayan</option>
+                        <option value='adarsh'>Adarsh Aniket</option>
+                        <option value='shilwant'>Shilwant</option>
+                        <option value='mohan'>Krishan Mohan</option>
                     </select>
                     <br/><br/>
 
