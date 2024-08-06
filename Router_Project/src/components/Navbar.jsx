@@ -13,7 +13,7 @@ function Navbar(props){
         <div className="flex justify-between items-center w-11/12 max-w-[1160px] py-4 mx-auto">
            
            <Link to="/">
-                <img src={logo} alt="logo-img" />
+                <img src={logo} alt="logo-img" height={32} width={160} loading="lazy" />
            </Link>
 
            <nav >
@@ -34,20 +34,23 @@ function Navbar(props){
 
             { !isLoggedIn &&
                 <Link to="/login" >
-                   <button > Login </button>
+                   <button className="bg-richblack-800 py-[8px] px-[12px] rounded-[8px] border border-richblack-700"> 
+                    Login </button>
                 </Link>
             }
 
            {  !isLoggedIn &&
                 <Link to="/signup">
-                   <button>Sign Up</button>
+                   <button className="bg-richblack-800 py-[8px] px-[12px] rounded-[8px] border border-richblack-700">
+                    Sign Up</button>
                 </Link>
             }
 
             {  isLoggedIn &&
                 <Link to="/">
                    <button onClick={() => { setIsLoggedIn(false);
-                         toast.success("Logout Sucessfully"); }}>
+                         toast.success("Logout Sucessfully"); }}
+                         className="bg-richblack-800 py-[8px] px-[12px] rounded-[8px] border border-richblack-700">
                          Log Out
                     </button>
                 </Link>
@@ -55,7 +58,7 @@ function Navbar(props){
 
            {  isLoggedIn &&
                 <Link to="/dashboard">
-                   <button>Dashboard</button>
+                   <button className="bg-richblack-800 py-[8px] px-[12px] rounded-[8px] border border-richblack-700">Dashboard</button>
                 </Link>
             }
 

@@ -15,6 +15,8 @@ function SignUpForm({setIsLoggedIn}) {
     })
 
     const[showPassword, setShowPassword]= useState(false);
+    const[showConfirmPassword, setShowConfirmPassword]= useState(false);
+    const [accountType, setAccountType] = useState("student");
     const navigate=useNavigate();
 
     function changeHandler(e){
@@ -33,7 +35,7 @@ function SignUpForm({setIsLoggedIn}) {
         setIsLoggedIn(true);
         toast.success("Account Created")
         const account={...formData}
-        console.log(account);
+        // console.log(account);
         navigate("/dashboard")
 
     }
@@ -41,75 +43,96 @@ function SignUpForm({setIsLoggedIn}) {
     
 
     return ( 
-        <div>
+        <div >
 
-            <div>
-                <button>
-                    Student
-                </button>
+            <div className="flex bg-richblack-800 p-1 gap-x-1 rounded-full max-w-max mt-[10px]">
 
-                <button>
-                    Instructor
-                </button>
-            </div>
+            <button onClick={() => setAccountType("student")}
+             className={`${accountType === "student" ? "bg-richblack-900 text-richblack-5": "bg-transparent text-richblack-200 "} 
+             py-2 px-5 rounded-full transition-all`} >
+              Student
+           </button>
 
-            <form onSubmit={submitHandler} >
+           <button onClick={() => setAccountType("instructor")}
+            className={`${ accountType === "instructor" ? "bg-richblack-900 text-richblack-5" : "bg-transparent text-richblack-200 "}
+             py-2 px-5 rounded-full transition-all`} >
+              Instructor
+          </button>
+     </div>
 
-                <div>
-                  <label >
-                    <p>First Name <sup>*</sup></p>
+            <form onSubmit={submitHandler}  >
+
+                <div className="flex gap-x-4 mt-[10px]">
+                  <label className="w-full">
+                    <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]" >
+                        First Name <sup className="text-pink-200">*</sup></p>
 
                     <input type="text" required name="firstname" placeholder="First Name"
-                     value={formData.firstname} onChange={changeHandler} />
+                     value={formData.firstname} onChange={changeHandler} 
+                     className="bg-richblack-800 rounded-[0.75rem] w-full p-[12px] text-richblack-5"/>
                   </label>
 
-                  <label >
-                    <p>Last Name <sup>*</sup></p>
+                  <label className="w-full">
+                    <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]">
+                        Last Name <sup className="text-pink-200">*</sup></p>
 
                     <input type="text" required name="lastname" placeholder="Last Name"
-                     value={formData.lastname} onChange={changeHandler} />
+                     value={formData.lastname} onChange={changeHandler} 
+                     className="bg-richblack-800 rounded-[0.75rem] w-full p-[12px] text-richblack-5"/>
                  </label>
                 </div>
                 
-                <label >
-                    <p>Email Address <sup>*</sup></p>
+                <div className="mt-[10px]">
+                <label className="w-full" >
+                    <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]">
+                        Email Address <sup className="text-pink-200">*</sup></p>
 
                     <input type="email" required name="email" placeholder="Enter email Address"
-                     value={formData.email} onChange={changeHandler} />
+                     value={formData.email} onChange={changeHandler} 
+                     className="bg-richblack-800 rounded-[0.75rem] w-full p-[12px] text-richblack-5"/>
                 </label>
+                </div>
 
-                <div>
-                 <label >
-                    <p>Create Password <sup>*</sup></p>
+                <div className="flex gap-x-4 mt-[10px]">
+                 <label className="w-full relative" >
+                    <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]">
+                        Create Password <sup className="text-pink-200">*</sup></p>
 
                     <input type={showPassword?"text":"password"} required name="createPassword"
                      placeholder="Enter Password"
                      value={formData.createPassword} 
-                     onChange={changeHandler} />
+                     onChange={changeHandler} 
+                     className="bg-richblack-800 rounded-[0.75rem] w-full p-[12px] text-richblack-5"
+                     />
 
-                   <span onClick={()=>setShowPassword(!showPassword)}>
-                    { showPassword ? (<AiOutlineEyeInvisible/>): (<AiOutlineEye/>) }
+                   <span onClick={()=>setShowPassword(!showPassword)} className="absolute right-3 top-[38px] cursor-pointer z-10">
+                    { showPassword ? (<AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF"/>): (<AiOutlineEye fontSize={24} fill="#AFB2BF"/>) }
                     </span>
 
                  </label>
 
-                 <label >
-                    <p>Confirm Password <sup>*</sup></p>
+                 <label className="w-full relative" >
+                    <p className="text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]">
+                        Confirm Password <sup className="text-pink-200">*</sup></p>
 
-                    <input type={showPassword?"text":"password"} required name="confirmPassword"
+                    <input type={showConfirmPassword?"text":"password"} required name="confirmPassword"
                      placeholder="Confirm Password"
                      value={formData.confirmPassword} 
-                     onChange={changeHandler} />
+                     onChange={changeHandler} 
+                     className="bg-richblack-800 rounded-[0.75rem] w-full p-[12px] text-richblack-5"
+                     />
 
-                   <span onClick={()=>setShowPassword(!showPassword)}>
-                    { showPassword ? (<AiOutlineEyeInvisible/>): (<AiOutlineEye/>) }
+                   <span onClick={()=>setShowConfirmPassword(!showConfirmPassword)}
+                    className="absolute right-3 top-[38px] cursor-pointer z-10">
+                    { showConfirmPassword ? (<AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />): (<AiOutlineEye fontSize={24} fill="#AFB2BF" />) }
                     </span>
 
                  </label>
 
                 </div>
 
-                <button>Create Account</button>
+                <button className="bg-yellow-50 py-[8px] px-[12px] rounded-[8px] mt-5 font-medium text-richblack-900 w-full">
+                    Create Account</button>
 
             </form>
             
