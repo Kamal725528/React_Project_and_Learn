@@ -2,3 +2,6 @@
 
 # Project Preview
 ![Project Preview GIF](project_GIF.gif)
+
+# Project Preview-2
+![Project Preview GIF](Study-Notion.gif)
