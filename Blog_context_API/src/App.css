@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Default (Light Mode) */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc; /* Light mode background */
+    color: #1a202c; /* Light mode text color */
+}
+
+/* Dark Mode */
+.dark body {
+    background-color: #1a202c; /* Dark mode background */
+    color: #e2e8f0; /* Dark mode text color */
+}
